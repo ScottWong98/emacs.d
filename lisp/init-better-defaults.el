@@ -43,4 +43,12 @@
                                          try-complete-lisp-symbol-partially
                                          try-complete-lisp-symbol))
 
+;; Dired
+(setq dired-recursive-deletes 'always)
+(setq dired-recursive-copies 'always)
+(require 'dired-x)
+(put 'dired-find-alternate-file 'disabled nil)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
 (provide 'init-better-defaults)

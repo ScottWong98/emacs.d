@@ -1,3 +1,5 @@
+(global-set-key (kbd "<f2>") 'open-my-init-file)
+
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 (global-set-key "\C-s" 'swiper)
