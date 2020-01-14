@@ -20,5 +20,5 @@
 
 (global-set-key (kbd "s-/") 'hippie-expand)
 
-
+(global-set-key (kbd "C-=") 'er/expand-region)
 (provide 'init-keybindings)

@@ -20,6 +20,7 @@
 		      nodejs-repl
 		      popwin
 		      web-mode
+		      expand-region
 		      ) "Default packages")
 
 (require 'cl)
@@ -109,6 +110,7 @@
 
 (global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
 
+(require 'expand-region)
 
 
 (provide 'init-packages)
