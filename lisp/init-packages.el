@@ -18,6 +18,7 @@
 			 smartparens
 			 js2-mode
 			 nodejs-repl
+			 popwin
 			 ) "Default packages")
 
 (require 'cl)
@@ -56,8 +57,7 @@
 (setq search-default-mode #'char-fold-to-regexp)
 
 ;; Smartparens
-(require 'smartparens-config)
-;;(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+(require 'smartparens)
 (smartparens-global-mode t)
 
 ;; js2-mode
@@ -73,5 +73,9 @@
     (cadr (split-string output "[\n]+" t))))
 
 (setq nodejs-repl-command #'nvm-which)
+
+;; Popwin
+(require 'popwin)
+(popwin-mode t)
 
 (provide 'init-packages)
