@@ -10,6 +10,7 @@
 (recentf-mode 1)
 (setq recentf-max-items 15)
 
+
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
   (cond ((looking-at-p "\\s(") (funcall fn))
@@ -18,14 +19,14 @@
              (funcall fn)))))
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
+
 (delete-selection-mode t)
+
 
 (defun indent-buffer ()
   "Indent the currently visited buffer."
   (interactive)
-
   (indent-region (point-min) (point-max)))
-
 (defun indent-region-or-buffer ()
   "Indent a region if selected, otherwise the whole buffer."
   (interactive)
@@ -37,6 +38,7 @@
       (progn
 	(indent-buffer)
 	(message "Indented buffer.")))))
+
 
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev
                                          try-expand-dabbrev-all-buffers
@@ -62,5 +64,23 @@
   (interactive)
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
+
+
+;; Improve  occur-mode
+;; dwin = do what I mean
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+	    (buffer-substring-no-properties
+	     (region-beginning)
+	     (region-end))
+	  (let ((sym (thing-at-point 'symbol)))
+	    (when (stringp sym)
+	      (regexp-quote sym))))
+	regexp-history)
+  (call-interactively 'occur))
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
 
 (provide 'init-better-defaults)
