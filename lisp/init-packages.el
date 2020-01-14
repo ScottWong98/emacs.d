@@ -57,8 +57,10 @@
 (setq search-default-mode #'char-fold-to-regexp)
 
 ;; Smartparens
-(require 'smartparens)
 (smartparens-global-mode t)
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+
+
 
 ;; js2-mode
 (setq auto-mode-alist
