@@ -21,6 +21,7 @@
 		      popwin
 		      web-mode
 		      expand-region
+		      iedit
 		      ) "Default packages")
 
 (require 'cl)
