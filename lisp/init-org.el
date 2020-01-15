@@ -8,8 +8,5 @@
 	'(("t" "Todo" entry (file+headline "~/org/gtd.org" "Arrangement")
 	   "* TODO [#B] %?\n  %i\n"
 	   :empty-lines 1)))
-  
-  (global-set-key (kbd "C-c r") 'org-capture)
-
   )
 (provide 'init-org)
