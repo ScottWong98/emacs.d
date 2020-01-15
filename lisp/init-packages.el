@@ -22,6 +22,7 @@
 		      web-mode
 		      expand-region
 		      iedit
+		      org-pomodoro
 		      ) "Default packages")
 
 (require 'cl)
@@ -113,5 +114,6 @@
 
 (require 'expand-region)
 
+(require 'org-pomodoro)
 
 (provide 'init-packages)
